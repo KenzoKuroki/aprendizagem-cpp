@@ -24,21 +24,21 @@ void systemError(short &counter);
 int main()
 {
   short statusMain = 0, counter = 0;
-  char senha[21] ="1234";
+  char serial[21] ="1234";
   char entrada[21] =  "1234";
 
-  cout << "Crie uma senha, não use espaços: " << endl;
+  cout << "Crie uma serial, não use espaços: " << endl;
   cout << ">>> ";
-  cin >> senha;
+  cin >> serial;
 
-  cout << "\nSenha criada com sucesso!\n" << senha << endl;
+  cout << "\nserial criada com sucesso!\n" << serial << endl;
 
   do{
-      cout << "Entre com a senha: " << endl;
+      cout << "Entre com a serial: " << endl;
       cout << ">>> ";
       cin >> entrada;
 
-      if(strcmp(senha, entrada) == 0)
+      if(strcmp(serial, entrada) == 0)
         systemLK(statusMain);
       else
         systemError(counter);
@@ -55,13 +55,13 @@ int main()
 //implementando funcoes
 //==============================
 void systemLK(short &status) {
-  cout << "Senha correta!" << endl;
+  cout << "serial correta!" << endl;
   cout << "Entrando no sistema LK!\n" << endl;
   status = 1;
 }//end systemLK
 
 void systemError(short &counter) {
-  cout << "Senha incorreta!" << endl;
+  cout << "serial incorreta!" << endl;
   cout << "Tentativas restantes: " << 2 - counter << endl;
   counter++;
 }
