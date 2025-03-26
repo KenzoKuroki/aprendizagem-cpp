@@ -22,11 +22,12 @@ class sensCurrent : public sensVolt
 {
     public:
         sensCurrent(const string &sensType, int valorADC, unsigned sensId , double Vref, double res);
+        ~sensCurrent();
         void setRes(double res);
         double getRes() const;
 
         double currentVal() const;
-        void dispResults() const;
+        virtual void dispResults() const;
     private:
       double _res;
 };

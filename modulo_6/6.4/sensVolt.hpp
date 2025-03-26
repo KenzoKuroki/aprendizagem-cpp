@@ -25,6 +25,7 @@ using std::setprecision;
 class sensVolt {
     public:
       sensVolt(const string &sensType, int valorADC, unsigned sensId , double Vref);
+      ~sensVolt();
       void setSensType(const string &sensType);
       string getSensType() const;
       void setValorADC(int valorADC);
@@ -34,9 +35,9 @@ class sensVolt {
       void setVref(double Vref);
       double getVref() const;
       double voltsVal() const;
-      void dispResults() const;
+      virtual void dispResults() const;
 
-    protected:
+    private:
       string _sensType;
       int _valorADC;
       unsigned _sensId;

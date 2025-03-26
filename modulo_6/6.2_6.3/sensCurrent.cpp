@@ -8,8 +8,13 @@
 sensCurrent::sensCurrent(const string &sensType, int valorADC, unsigned sensId , double Vref, double res):
 sensVolt(sensType, valorADC, sensId, Vref)
 {
-  _res = res;
+  setRes(res);
+  cout << "sensCurrent constructor" << endl;
 }//end constructor
+
+sensCurrent::~sensCurrent(){
+  cout << "Destructor sensCurrent" << endl;
+}
 
 //==============================================================
 void sensCurrent::setRes(double res){
@@ -23,17 +28,12 @@ double sensCurrent::getRes() const{
 
 //==============================================================
 double sensCurrent::currentVal() const{
-  double voltage = voltsVal();
-  return voltage/_res*1000;
+  return sensVolt::voltsVal()/getRes()*1000;
 }
 
 //==============================================================
 void sensCurrent::dispResults() const{
-  cout << "Tipo do Sensor: " << _sensType << endl
-        << "Valor ADC: " << _valorADC  << "V" << endl
-        << "SensId: " << _sensId << endl
-        << "Vref: " << _Vref  << "V" << endl
-        << "Resistor: " << _res << endl
-        << "Voltage: " << voltsVal()  << "V" << endl
+  sensVolt::dispResults();
+  cout  << "Resistor: " << _res << endl
         << "Corrente: " << currentVal()  << "mA" << endl;
 }//end dispResults

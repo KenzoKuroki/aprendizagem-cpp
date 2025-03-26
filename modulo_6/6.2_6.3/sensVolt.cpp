@@ -5,13 +5,16 @@
 #include "sensVolt.hpp"
 
 //==========================================
-sensVolt::sensVolt(const string &sensType, int valorADC, unsigned sensId , double Vref){
-
-  _sensType = sensType;
-  _valorADC = valorADC;
-  _sensId = sensId;
-  _Vref = Vref;
+sensVolt::sensVolt(const string &sensType, int valorADC, unsigned sensId , double Vref):
+ _sensType(sensType), _valorADC(valorADC), _sensId(sensId), _Vref(Vref)
+{
+  cout << "Constructor sensVolt" << endl;
 }//end construtor
+
+sensVolt::~sensVolt(){
+  cout << "Destructor sensVolt" << endl;
+}//end destrutor
+
 //==========================================
 
 void sensVolt::setSensType(const string &sensType){
@@ -48,15 +51,15 @@ double sensVolt::getVref() const{
 }//end getVref
 //==========================================
 double sensVolt::voltsVal() const{
-  return _valorADC*_Vref/static_cast <double> (1024);
+  return getValorADC()*getVref()/static_cast <double> (1024);
 }//end voltVal
 //==========================================
 void sensVolt::dispResults() const{
-  cout << "Tipo do Sensor: " << _sensType << endl
-        << "Valor ADC: " << _valorADC  << "V" << endl
-        << "SensId: " << _sensId << endl
-        << "Vref: " << _Vref << "V" << endl
-        << "Voltage: " << voltsVal() << "V" << endl;
+  cout << "\nTipo do Sensor: " << getSensType() << endl
+        << "Valor ADC: " << getValorADC()  << 'V' << endl
+        << "SensId: " << getSensId() << endl
+        << "Vref: " << getVref() << 'V' << endl
+        << "Voltage: " << voltsVal() << 'V' << endl;
 }//end dispResults
 //==========================================
 
