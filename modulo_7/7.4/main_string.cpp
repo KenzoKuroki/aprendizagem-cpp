@@ -11,6 +11,11 @@ int main(){
 
   cout << (s1+=s2+=s3) << endl;
 
+  cout << s1 << s3 << endl;
+
+  s1 =  s2[6];
+
+  cout << s1 << endl;
 
   cout << "\nFIM" << endl;
   return 0;
