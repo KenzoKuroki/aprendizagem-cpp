@@ -7,6 +7,7 @@ using std::cout;
 using std::endl;
 using std::ostream;
 using std::istream;
+using std::cerr;
 
 #include <iomanip>
 using std::setw;
@@ -17,6 +18,10 @@ using std::strcmp;
 using std::strcpy;
 using std::strncat;
 
+#include <cstdlib>
+using std::exit;
+
+
 #ifndef STRING_HPP
 #define STRING_HPP
 
@@ -26,7 +31,6 @@ class String {
     public:
       String(const char * = "");
       ~String();
-      const String &operator[](const int &);
 
       const String &operator=(const String &);
       const String &operator=(const char *);
@@ -39,6 +43,7 @@ class String {
       bool operator<=(const String &) const;
       bool operator>=(const String &) const;
 
+      char &operator[](int);
 
       int getLenth() const;
 

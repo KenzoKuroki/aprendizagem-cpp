@@ -13,9 +13,9 @@ int main(){
 
   cout << s1 << s3 << endl;
 
-  s1 =  s2[6];
+  s1[2] = s2[10];
 
-  cout << s1 << endl;
+  cout << s1[2] << endl;
 
   cout << "\nFIM" << endl;
   return 0;

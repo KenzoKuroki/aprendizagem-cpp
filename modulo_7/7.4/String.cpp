@@ -120,8 +120,16 @@ istream& operator>>(istream& input, String& str){
   return input;
 }
 
-//const String &String::operator[](const int &index)
-//{
-//	_index = index;
-//    return *this;
-//}
+char &String::operator[](int index)
+{
+  //verifica erro de subscrito fora do intervalo
+  if(index >= length)
+  {
+    cerr << "\nErro: array[" << index
+         << "] inexistente. " << endl;
+
+    exit(1);  //termina o programa, subscrito fora do intervalo
+  }
+
+  return sPtr[index];
+}//end operador []
